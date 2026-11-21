@@ -38,10 +38,3 @@ repair-tracker/
    ```
 
 ---
-
-## 30-Day Build Log
-
-* **Day 1 — Workspace & Infrastructure Setup:**
-  * Initialized a single-repository workspace with separate `/client` (React + Vite + TypeScript) and `/server` (NestJS + TypeScript) apps.
-  * Configured a containerized PostgreSQL 16 database via `docker-compose.yml` with persistent local volume storage.
-  * Verified both development servers locally and pushed the baseline repository to GitHub.
