@@ -1,68 +1,47 @@
-\# Repair Tracker
+# Repair Tracker
 
+A full-stack device repair and ticket management application built over 30 days to master **React**, **NestJS**, and **PostgreSQL** fundamentals.
 
+## Tech Stack
+* **Frontend:** React, Vite, TypeScript
+* **Backend:** NestJS, TypeScript
+* **Database:** PostgreSQL (Docker)
 
-A full-stack device repair and ticket management application built over 30 days to master \*\*React\*\*, \*\*NestJS\*\*, and \*\*PostgreSQL\*\* fundamentals.
-
-
-
-\## Tech Stack
-
-\* \*\*Frontend:\*\* React, Vite, TypeScript
-
-\* \*\*Backend:\*\* NestJS, TypeScript
-
-\* \*\*Database:\*\* PostgreSQL (Docker)
-
-
-
-\## Project Structure
-
+## Project Structure
 ```text
-
 repair-tracker/
-
 ├── client/               # React + Vite frontend
-
 ├── server/               # NestJS REST API backend
-
 ├── docker-compose.yml    # Local PostgreSQL container setup
-
 └── README.md
+```
 
+## Local Setup
 
+1. **Start the PostgreSQL database:**
+   ```bash
+   docker compose up -d
+   ```
 
-Local Setup
+2. **Run the Backend (`/server`):**
+   ```bash
+   cd server
+   pnpm install
+   pnpm run start:dev
+   ```
 
+3. **Run the Frontend (`/client`):**
+   ```bash
+   cd client
+   pnpm install
+   pnpm run dev
+   ```
 
+---
 
-Start the PostgreSQL database:
+## 30-Day Build Log
 
-
-
-docker compose up -d
-
-
-
-Run the Backend (/server):
-
-
-
-cd server
-
-pnpm install
-
-pnpm run start:dev
-
-
-
-Run the Frontend (/client):
-
-
-
-cd client
-
-pnpm install
-
-pnpm run dev
-
+* **Day 1 — Workspace & Infrastructure Setup:**
+  * Initialized a single-repository workspace with separate `/client` (React + Vite + TypeScript) and `/server` (NestJS + TypeScript) apps.
+  * Configured a containerized PostgreSQL 16 database via `docker-compose.yml` with persistent local volume storage.
+  * Verified both development servers locally and pushed the baseline repository to GitHub.
