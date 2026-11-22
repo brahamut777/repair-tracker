@@ -7,9 +7,12 @@ import { UpdateTicketDto } from './dto/update-ticket.dto';
 export class TicketsService {
   constructor(private prisma: PrismaService) {}
 
-  async create(dto: CreateTicketDto) {
+  async create(userId: number, dto: CreateTicketDto) {
     return this.prisma.ticket.create({
-      data: dto,
+      data: {
+        ...dto,
+        userId,
+      },
     });
   }
 

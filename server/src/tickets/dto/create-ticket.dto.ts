@@ -4,15 +4,15 @@ import { IsEnum, IsNotEmpty, IsOptional, IsString, IsNumber, IsInt, Min } from "
 export class CreateTicketDto {
   @IsString()
   @IsNotEmpty()
-  deviceName: string;
+  deviceName!: string;
 
   @IsString()
   @IsNotEmpty()
-  customerName: string;
+  customerName!: string;
 
   @IsString()
   @IsNotEmpty()
-  issue: string;
+  issue!: string;
 
   @IsEnum(TicketStatus)
   @IsOptional()
@@ -22,7 +22,4 @@ export class CreateTicketDto {
   @Min(0)
   @IsOptional()
   estimatedCost?: number;
-
-  @IsInt()
-  userId: number;
 }
