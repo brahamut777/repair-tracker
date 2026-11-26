@@ -4,6 +4,7 @@ interface TicketCardProps {
 	ticket: Ticket;
 	isOwner: boolean;
 	onStatusChange: (id: number, status: TicketStatus) => Promise<void>;
+	onEdit: (ticket: Ticket) => void;
 	onDelete: (id: number) => Promise<void>;
 }
 
@@ -14,7 +15,7 @@ const STATUS_COLORS: Record<TicketStatus, { bg: string; text: string }> = {
 	READY: { bg: '#e9c995', text: '#0a2b16' },
 };
 
-export function TicketCard({ ticket, isOwner, onStatusChange, onDelete }: TicketCardProps){
+export function TicketCard({ ticket, isOwner, onStatusChange, onEdit, onDelete }: TicketCardProps){
 	const badge = STATUS_COLORS[ticket.status];
 
 	return (
@@ -52,13 +53,22 @@ export function TicketCard({ ticket, isOwner, onStatusChange, onDelete }: Ticket
 						<option value="COMPLETED">Completed</option>
 					</select>
 
-					<button
-						type="button"
-            onClick={() => onDelete(ticket.id)}
-            style={{ padding: '5px 10px', background: '#fee2e2', color: '#b91c1c', border: 'none', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}
-					>
-						Delete
-					</button>
+					<div>
+						<button
+							type="button"
+							onClick={() => onEdit(ticket)}
+							style={{ padding: '5px 10px', background: '#e0e7ff', color: '#1d4ed8', border: 'none', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}
+						>
+							Edit
+						</button>
+						<button
+							type="button"
+							onClick={() => onDelete(ticket.id)}
+							style={{ padding: '5px 10px', background: '#fee2e2', color: '#b91c1c', border: 'none', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}
+						>
+							Delete
+						</button>
+					</div>
 				</div>
 			)}
 		</div>
